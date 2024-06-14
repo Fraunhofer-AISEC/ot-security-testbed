@@ -1,0 +1,1027 @@
+{
+	"meta": {
+		"chronografVersion": "1.8.8",
+		"sources": {
+			"1": {
+				"name": "InfluxDB",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "1",
+		"cells": [
+			{
+				"i": "e67908b0-3c45-4358-b933-6762878600c5",
+				"x": 9,
+				"y": 0,
+				"w": 3,
+				"h": 4,
+				"name": "Temperature Gauge",
+				"queries": [
+					{
+						"query": "SELECT \"thermometer\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"name\"='PLC'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "thermometer",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"name": [
+									"PLC"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"80",
+							"100"
+						],
+						"label": "Heater Temperature",
+						"prefix": "",
+						"suffix": "°C",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "80"
+					},
+					{
+						"id": "b3f48c64-b571-4503-99c8-bb0ef3e4b7e7",
+						"type": "threshold",
+						"hex": "#FFD255",
+						"name": "thunder",
+						"value": "95"
+					},
+					{
+						"id": "a68e1d9c-67a4-4acd-baf7-77b29c458be5",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "97"
+					},
+					{
+						"id": "e37b3ccf-6212-4df9-b72e-d29d005b0fa1",
+						"type": "threshold",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "100"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "105"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/e67908b0-3c45-4358-b933-6762878600c5"
+				}
+			},
+			{
+				"i": "c08a0017-1508-4bd0-99e4-9948b5b731cf",
+				"x": 0,
+				"y": 4,
+				"w": 9,
+				"h": 4,
+				"name": "Pressure Measurements",
+				"queries": [
+					{
+						"query": "SELECT \"pressure_gauge\", \"max_pressure\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"name\"='PLC'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "pressure_gauge",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "max_pressure",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"name": [
+									"PLC"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Pressure",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "8d33b16e-17b7-47e3-878a-4a5ac858f7ca",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "cc6cd6fe-b4d6-4396-bc01-4fb8a948a85d",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "904f0cb4-7cf5-44d0-8056-f2e9ed3e1a11",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.max_pressure",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.pressure_gauge",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/c08a0017-1508-4bd0-99e4-9948b5b731cf"
+				}
+			},
+			{
+				"i": "8bff9c04-f9dc-49ee-933c-88f7b85d620a",
+				"x": 0,
+				"y": 12,
+				"w": 12,
+				"h": 2,
+				"name": "Water Levels",
+				"queries": [
+					{
+						"query": "SELECT \"level_sensor_high\", \"level_sensor_low\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "level_sensor_high",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "level_sensor_low",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "Water Level",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "b2d32356-aaa1-4553-a7df-027f61c928db",
+						"type": "scale",
+						"hex": "#8F8AF4",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					},
+					{
+						"id": "82a0b64c-d625-4c33-a972-80efcc65c927",
+						"type": "scale",
+						"hex": "#A51414",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					},
+					{
+						"id": "81ed2a1a-7b91-4dc9-b735-40bbaf189c6e",
+						"type": "scale",
+						"hex": "#F4CF31",
+						"name": "Do Androids Dream of Electric Sheep?",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/8bff9c04-f9dc-49ee-933c-88f7b85d620a"
+				}
+			},
+			{
+				"i": "86548b91-7981-49d4-a2b3-bd76558e05b1",
+				"x": 0,
+				"y": 10,
+				"w": 12,
+				"h": 2,
+				"name": "System State",
+				"queries": [
+					{
+						"query": "SELECT mean(\"on_button\") AS \"mean_on_button\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(none)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_on_button",
+									"args": [
+										{
+											"value": "on_button",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "none",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "On",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "8a14359c-8445-4572-86fa-70ee4356aeae",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a5621316-5aad-4983-8465-cac0c3265877",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "81b8bec1-f6ab-4ad2-bbe4-af920fd66d2c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/86548b91-7981-49d4-a2b3-bd76558e05b1"
+				}
+			},
+			{
+				"i": "71feb5af-a00c-4361-bf5b-423cded7508a",
+				"x": 9,
+				"y": 4,
+				"w": 3,
+				"h": 4,
+				"name": "Pressure Gauge",
+				"queries": [
+					{
+						"query": "SELECT \"pressure_gauge\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"name\"='PLC'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "pressure_gauge",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"name": [
+									"PLC"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Pressure",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#4ED8A0",
+						"name": "rainforest",
+						"value": "0"
+					},
+					{
+						"id": "e7b82c1e-0966-4577-be1c-936f70cf7a99",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "300"
+					},
+					{
+						"id": "47e57a1d-3b8f-437d-a194-d8c264c290d6",
+						"type": "threshold",
+						"hex": "#BF3D5E",
+						"name": "ruby",
+						"value": "400"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#9394FF",
+						"name": "comet",
+						"value": "500"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.max_pressure",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.pressure_gauge",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/71feb5af-a00c-4361-bf5b-423cded7508a"
+				}
+			},
+			{
+				"i": "9940e3e9-ed70-4f07-a76c-a4dbe603bf6d",
+				"x": 0,
+				"y": 0,
+				"w": 9,
+				"h": 4,
+				"name": "Temperature Measurements",
+				"queries": [
+					{
+						"query": "SELECT mean(\"thermometer\") AS \"mean_thermometer\", mean(\"max_temp\") AS \"mean_max_temp\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"name\"='PLC' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_thermometer",
+									"args": [
+										{
+											"value": "thermometer",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_max_temp",
+									"args": [
+										{
+											"value": "max_temp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"name": [
+									"PLC"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							"100"
+						],
+						"label": "Heater Temperature",
+						"prefix": "",
+						"suffix": "°C",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "8a14359c-8445-4572-86fa-70ee4356aeae",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a5621316-5aad-4983-8465-cac0c3265877",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "81b8bec1-f6ab-4ad2-bbe4-af920fd66d2c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/9940e3e9-ed70-4f07-a76c-a4dbe603bf6d"
+				}
+			},
+			{
+				"i": "86671722-a665-42d0-8c1a-99e4b079b0e3",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 2,
+				"name": "PLC actuator output",
+				"queries": [
+					{
+						"query": "SELECT \"drain_on\", \"heater_on\", \"water_on\" FROM \"telegraf\".\"autogen\".\"modbus\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"name\"='PLC'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "modbus",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "drain_on",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "heater_on",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "water_on",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {
+								"name": [
+									"PLC"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "/chronograf/v1/sources/1",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stepplot",
+				"colors": [
+					{
+						"id": "8a14359c-8445-4572-86fa-70ee4356aeae",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a5621316-5aad-4983-8465-cac0c3265877",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "81b8bec1-f6ab-4ad2-bbe4-af920fd66d2c",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {
+					"type": "static",
+					"orientation": "bottom"
+				},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.mean_drain_on",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.mean_heater_on",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "modbus.mean_water_on",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/1/cells/86671722-a665-42d0-8c1a-99e4b079b0e3"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Industrial Process Data (Modbus)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/1",
+			"cells": "/chronograf/v1/dashboards/1/cells",
+			"templates": "/chronograf/v1/dashboards/1/templates"
+		}
+	}
+}

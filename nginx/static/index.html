@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--
+ Copyright 2022 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Testbed Home</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<section class="hero">
+    <div style="margin-bottom: 0; padding-bottom: 0" class="hero-body">
+        <h1>
+            <img class="image" src="testbed-logo.svg" alt="plc-testbed Logo."/>
+        </h1>
+    </div>
+</section>
+
+<noscript>
+    <article class="message is-danger">
+        <div class="message-header">
+            <p>Enable JavaScript.</p>
+        </div>
+        <div class="message-body">
+            JavaScript is required for this site to function correctly.
+        </div>
+    </article>
+</noscript>
+
+<section class="section">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="./">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="mb-5">
+        <h2 class="title">Documentation</h2>
+        <p>
+            The documentation can be found
+            <a target="_blank" href="{{docs_url}}">here</a>.
+        </p>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="title">Compact Overview</h2>
+        <p>
+            A compact overview to access testbed components can be found
+            <a href="./overview.html">here</a>.
+        </p>
+
+        <div>
+            <img style="width: auto;
+                        max-height: 550px;
+                        "
+                 src="testbed-overview-scaled.png" alt="Screenshot of the Overview Page.">
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h2 class="title">Web Interfaces</h2>
+        <div class="card mb-4">
+            <header class="card-header">
+                <p class="card-header-title">Human Machine Interface (HMI)</p>
+                <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    The HMI is used to monitor and interact with the industrial
+                    process and PLC.
+                    <br/>
+                    It is build with
+                    <a target="_blank" href="https://github.com/frangoteam/FUXA">FUXA</a>.
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a target="_blank"
+                   href="{{hmi_url}}/lab"
+                   class="card-footer-item"
+                >Open</a
+                >
+            </footer>
+        </div>
+
+        <div class="card mb-4">
+            <header class="card-header">
+                <p class="card-header-title">OpenPLC WebInterface</p>
+                <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    The PLC is realized with
+                    <a target="_blank" href="https://www.openplcproject.com/">OpenPLC</a>, controls
+                    the industrial process over Modbus TCP/IP.
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a target="_blank"
+                   href="{{plc_url}}"
+                   class="card-footer-item"
+                >Open</a
+                >
+            </footer>
+        </div>
+
+        <div class="card mb-4">
+            <header class="card-header">
+                <p class="card-header-title">Simulation Visualizer</p>
+                <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    The visualizer provides a dynamic view of the simulation
+                    independent of network/sensor manipulation.
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a target="_blank"
+                   href="{{vis_url}}"
+                   class="card-footer-item"
+                >Open</a
+                >
+            </footer>
+        </div>
+
+        <div class="card mb-4">
+            <header class="card-header">
+                <p class="card-header-title">Historian Dashboard</p>
+                <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    The historian uses the
+                    <a target="_blank" href="https://www.influxdata.com/time-series-platform/"
+                    >TICK stack</a
+                    >. Chronograf is the dashboard component, it has a pre-configured
+                    view of the process, but it can be used to explore all kinds of
+                    data points collected from the simulation.
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <a target="_blank"
+                   href="{{hist_url}}"
+                   class="card-footer-item"
+                >Open</a
+                >
+            </footer>
+        </div>
+        <div class="card mb-4">
+            <header class="card-header">
+                <p class="card-header-title">Attacker</p>
+                <button class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+                </button>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    The attacker uses a
+                    <a target="_blank"
+                       href="https://www.kali.org/docs/containers/using-kali-docker-images/">KaliLinux</a>
+                    container and
+                    <a target="_blank" href="https://github.com/shellinabox/shellinabox">shellinabox</a>
+                    as a frontend.
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <a target="_blank"
+                   href="{{attacker_url}}"
+                   class="card-footer-item"
+                >Open</a
+                >
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="mb-5">
+        <h2 class="title">Repository</h2>
+        <p>
+            The repository is available
+            <a target="_blank" href="https://github.com/Fraunhofer-AISEC/plc-testbed"
+            >here</a
+            >.
+        </p>
+    </div>
+
+
+</section>
+
+<script src="common.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

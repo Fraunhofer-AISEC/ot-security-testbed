@@ -1,0 +1,7 @@
+[application_cert]
+subjectAltName=URI:urn:testbed:client
+basicConstraints=CA:FALSE
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer:always
+keyUsage=digitalSignature, digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage=clientAuth

@@ -1,0 +1,12 @@
+[ ca ]
+# `man ca`
+default_ca = CA_default
+
+[ CA_default ]
+# Directory and file locations.
+dir               = .
+database          = $dir/index.txt
+serial            = $dir/serial
+
+# SHA-1 is deprecated, so use SHA-2 instead.
+default_md        = sha256

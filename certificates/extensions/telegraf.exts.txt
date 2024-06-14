@@ -1,0 +1,7 @@
+[application_cert]
+subjectAltName=URI:urn:telegraf:gopcua:client,DNS:localhost,IP:127.0.0.1,DNS:telegraf
+basicConstraints=CA:FALSE
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer:always
+keyUsage=digitalSignature, digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage=clientAuth

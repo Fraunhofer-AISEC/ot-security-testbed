@@ -1,0 +1,7 @@
+pymodbus
+asyncua
+pydantic
+twisted
+aiofiles
+uvicorn
+fastapi

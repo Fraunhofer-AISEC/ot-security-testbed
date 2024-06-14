@@ -1,0 +1,7 @@
+[application_cert]
+subjectAltName=URI:urn:open62541.server.application,DNS:localhost,IP:127.0.0.1,DNS:plc
+basicConstraints=CA:FALSE
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer:always
+keyUsage=digitalSignature, digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage=serverAuth

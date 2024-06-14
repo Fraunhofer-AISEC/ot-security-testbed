@@ -1,0 +1,6 @@
+[book]
+authors = ["Victor Embacher"]
+language = "en"
+multilingual = false
+src = "src"
+title = "PLC Testbed Documentation"
